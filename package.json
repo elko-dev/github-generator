@@ -8,6 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "tsc -w",
     "lint": "tslint '*.ts'",
+    "test:watch": "jest --watch",
+    "test:cover": "jest --coverage",
+    "deploy": "sls deploy --verbose -s $ENV",
     "integration": "./integration/run.sh github_generator.postman_collection.json github-generator $ENV"
   },
   "keywords": [],

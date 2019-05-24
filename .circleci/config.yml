@@ -21,10 +21,10 @@ jobs:
           npm run install-global-dependencies
           sudo npm install
           # npm run lint
-          npm run test:cover
+          # npm run test:cover
           npm run build
-          npm run deploy-dev
-          npm run integration
+          npm run deploy dev
+          npm run integration dev
     - store_artifacts:
         path: test-results.xml
         prefix: tests
