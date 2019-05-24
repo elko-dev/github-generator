@@ -1,19 +1,13 @@
 {
-  "compileOnSave": true,
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
-    "outDir": "./dist",
-    "strict": true,
-    "baseUrl": "./",
-    "allowJs": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "types": [
-      "node"
-    ],
-    "esModuleInterop": true,
-    "inlineSourceMap": true
-  }
+    "target": "es6",
+    "module": "commonjs"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "types": [
+    "node",
+    "aws-sdk"
+  ]
 }
