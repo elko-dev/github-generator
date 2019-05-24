@@ -1,0 +1,35 @@
+version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - master
+    docker:
+      - image: larse514/circle-ci-node-docker:latest
+    # environment:
+    #   - BUCKET_NAME: "moodle.sites.lambda.deployment"
+    steps:
+    - checkout
+    - run: 
+        name: Configure AWS environment
+        command: |
+            aws configure set default.region us-east-1
+            aws configure set default.output json
+    - run: 
+        name: deploy dev
+        command: |
+          npm run install-global-dependencies
+          sudo npm install
+          # npm run lint
+          npm run test:cover
+          npm run build
+          npm run deploy-dev
+          npm run integration
+    - store_artifacts:
+        path: test-results.xml
+        prefix: tests
+    - store_artifacts:
+        path: coverage
+        prefix: coverage
+    - store_test_results:
+        path: test-results.xml
